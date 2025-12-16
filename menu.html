@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+  <!-- Aquí cargo primero la librería p5.js y mi sketch para el fondo interactivo de todas las páginas -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+  <script src="js/sketch.js"></script>
+  <head>
+    <!-- Defino la codificación para que se muestren bien los caracteres como tildes y eñes -->
+    <meta charset="UTF-8" />
+    <!-- Con esta meta hago que el diseño se adapte al ancho de cualquier dispositivo (responsive) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Título que aparecerá en la pestaña del navegador para esta página de menú -->
+    <title>Menú de servicios · TecnoVision Web</title>
+
+    <!-- Preparo la conexión con Google Fonts para cargar la fuente Space Grotesk que uso en todo el sitio -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Aquí importo la familia de fuentes con varios grosores (300, 400, 500, 700) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Enlazo mi hoja de estilos principal donde tengo todo el diseño común de la web -->
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Cabecera general del sitio con el título, las siglas DA y el menú -->
+    <header class="site-header">
+      <!-- Bloque de la izquierda donde muestro el nombre del proyecto y una pequeña descripción -->
+      <div class="titulo-izquierda">
+        <h1>TecnoVision Web</h1>
+        <p>Digital Innovation Lab</p>
+      </div>
+
+      <!-- Zona central del header donde enseño las siglas DA de forma destacada -->
+      <div class="siglas-centro">
+        <span>DA</span>
+      </div>
+
+      <!-- Navegación principal a la derecha con enlaces a las otras páginas del sitio -->
+      <nav class="nav-derecha">
+        <ul>
+          <!-- Enlace que lleva a la sección de imágenes en la página principal -->
+          <li><a href="index.html#imagenes">Imágenes</a></li>
+          <!-- Enlace al index (página de inicio) -->
+          <li><a href="index.html">Index</a></li>
+          <!-- Enlace directo al formulario de registro -->
+          <li><a href="formulario.html">Formulario</a></li>
+          <!-- Enlace a esta misma página de menú de servicios -->
+          <li><a href="menu.html">Menú</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Contenido principal de la página centrado, donde muestro el “menú de estudio y desarrollo” -->
+    <main class="menu-main">
+      <!-- Contenedor tipo tarjeta oscura donde organizo todas las secciones del menú -->
+      <section class="menu-container">
+        <!-- Título general que explica que se trata del menú de estudio y desarrollo -->
+        <h2>Menú de estudio y desarrollo TecnoVision</h2>
+        <!-- Párrafo introductorio donde resumo qué tipo de información voy a mostrar en las tablas -->
+        <p class="menu-intro">
+          En TecnoVision Studio combinamos diseño, desarrollo de aplicaciones y
+          experiencias multimedia para crear productos digitales completos. A
+          continuación puedes ver un resumen estructurado de nuestras áreas de
+          trabajo, tipos de proyectos y tecnologías principales.
+        </p>
+
+        <!-- SECCIÓN 1: aquí describo las diferentes áreas internas del estudio -->
+        <section class="menu-section">
+          <h3>Áreas del estudio</h3>
+          <p>
+            Nuestro estudio se organiza en diferentes áreas especializadas que
+            colaboran entre sí para entregar soluciones coherentes, escalables y
+            visualmente atractivas.
+          </p>
+
+          <!-- Tabla donde organizo cada área, su descripción y los entregables típicos -->
+          <table class="menu-table">
+            <thead>
+              <tr>
+                <th>Área</th>
+                <th>Descripción</th>
+                <th>Entregables habituales</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Diseño UI / UX</td>
+                <td>
+                  Definición de la experiencia de usuario, arquitectura de
+                  información y diseño visual de interfaces centradas en las
+                  personas.
+                </td>
+                <td>
+                  Wireframes, prototipos interactivos, guías de estilo, sistemas
+                  de diseño, tests de usabilidad.
+                </td>
+              </tr>
+              <tr>
+                <td>Desarrollo Web</td>
+                <td>
+                  Creación de sitios y aplicaciones web modernas, accesibles y
+                  optimizadas para distintos dispositivos.
+                </td>
+                <td>
+                  Landing pages, paneles de administración, SPA, dashboards,
+                  integración con APIs.
+                </td>
+              </tr>
+              <tr>
+                <td>Desarrollo de Apps</td>
+                <td>
+                  Desarrollo de aplicaciones móviles y de escritorio conectadas
+                  a servicios en la nube y pensadas para escalar.
+                </td>
+                <td>
+                  Apps híbridas, PWA, notificaciones push, autenticación,
+                  sincronización offline.
+                </td>
+              </tr>
+              <tr>
+                <td>Experiencias Multimedia</td>
+                <td>
+                  Proyectos interactivos con animaciones, gráficos generativos y
+                  elementos audiovisuales en tiempo real.
+                </td>
+                <td>
+                  Canvas con p5.js, visualizaciones de datos, microsites
+                  interactivos, juegos sencillos.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- SECCIÓN 2: aquí detallo varios tipos de proyectos y su alcance aproximado -->
+        <section class="menu-section">
+          <h3>Tipos de proyecto y alcance</h3>
+          <p>
+            Dependiendo de las necesidades del cliente, planteamos distintos
+            niveles de alcance. Los siguientes ejemplos muestran algunos
+            formatos de colaboración habituales.
+          </p>
+
+          <!-- Tabla donde relaciono tipo de proyecto, duración, qué incluye y para quién es ideal -->
+          <table class="menu-table">
+            <thead>
+              <tr>
+                <th>Tipo de proyecto</th>
+                <th>Duración estimada</th>
+                <th>Incluye</th>
+                <th>Ideal para</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Landing de campaña</td>
+                <td>2 &ndash; 4 semanas</td>
+                <td>
+                  Diseño visual, maquetación responsive, integración con
+                  analítica básica, animaciones ligeras en canvas.
+                </td>
+                <td>
+                  Lanzamiento de producto, eventos, promociones puntuales.
+                </td>
+              </tr>
+              <tr>
+                <td>Web corporativa</td>
+                <td>4 &ndash; 8 semanas</td>
+                <td>
+                  Arquitectura de contenidos, blog básico, secciones dinámicas,
+                  panel mínimo de gestión, optimización SEO inicial.
+                </td>
+                <td>Pymes, estudios creativos, perfiles profesionales.</td>
+              </tr>
+              <tr>
+                <td>Aplicación web de gestión</td>
+                <td>8 &ndash; 16 semanas</td>
+                <td>
+                  Sistema de usuarios, roles, área privada, paneles de control,
+                  informes, conexión con bases de datos y APIs externas.
+                </td>
+                <td>
+                  Equipos internos, startups, herramientas a medida para centros
+                  educativos.
+                </td>
+              </tr>
+              <tr>
+                <td>Experiencia multimedia interactiva</td>
+                <td>3 &ndash; 6 semanas</td>
+                <td>
+                  Escenas en canvas con p5.js, animaciones sincronizadas con
+                  audio, interacciones con ratón/teclado, efectos visuales
+                  personalizados.
+                </td>
+                <td>
+                  Proyectos educativos, exposiciones, piezas de portfolio,
+                  instalaciones digitales.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- SECCIÓN 3: listado de tecnologías agrupadas por capas de un proyecto -->
+        <section class="menu-section">
+          <h3>Mapa de tecnologías</h3>
+          <p>
+            Estas son algunas de las tecnologías que utilizamos habitualmente en
+            los proyectos de desarrollo de apps, webs y experiencias multimedia.
+          </p>
+
+          <!-- Tabla donde indico la capa (frontend, backend, etc.), las tecnologías y cómo las uso -->
+          <table class="menu-table">
+            <thead>
+              <tr>
+                <th>Capa</th>
+                <th>Tecnologías principales</th>
+                <th>Uso dentro de los proyectos DA</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Frontend</td>
+                <td>
+                  HTML5, CSS3, JavaScript, frameworks SPA, sistemas de diseño
+                  responsive.
+                </td>
+                <td>
+                  Maquetación de interfaces, componentes reutilizables,
+                  animaciones, interacción avanzada con el usuario.
+                </td>
+              </tr>
+              <tr>
+                <td>Backend y datos</td>
+                <td>APIs REST, Node.js, PHP, bases de datos SQL / NoSQL.</td>
+                <td>
+                  Autenticación, gestión de usuarios, lógica de negocio,
+                  almacenamiento y consulta de información.
+                </td>
+              </tr>
+              <tr>
+                <td>Multimedia y canvas</td>
+                <td>p5.js, Web Audio API, vídeo HTML5, SVG animado.</td>
+                <td>
+                  Creación de escenas generativas, juegos sencillos,
+                  visualización de datos en tiempo real, efectos de sonido.
+                </td>
+              </tr>
+              <tr>
+                <td>Herramientas de diseño</td>
+                <td>
+                  Figma, sistemas de grid, prototipado interactivo, librerías de
+                  iconos.
+                </td>
+                <td>
+                  Diseño de pantallas, componentes, iteración rápida con el
+                  cliente y documentación visual del proyecto.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- SECCIÓN 4: explicación del flujo de trabajo que sigo en los proyectos -->
+        <section class="menu-section">
+          <h3>Flujo de trabajo del estudio</h3>
+          <p>
+            Cada proyecto sigue un ciclo sencillo pero estructurado que nos
+            ayuda a mantener el control sobre las entregas y la calidad.
+          </p>
+
+          <!-- Tabla donde desgloso cada fase del flujo, su objetivo y las actividades clave -->
+          <table class="menu-table">
+            <thead>
+              <tr>
+                <th>Fase</th>
+                <th>Objetivo</th>
+                <th>Actividades clave</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1. Descubrimiento</td>
+                <td>
+                  Entender el contexto y las necesidades reales del proyecto.
+                </td>
+                <td>
+                  Reuniones iniciales, análisis de requisitos, revisión de
+                  referencias, definición de objetivos medibles.
+                </td>
+              </tr>
+              <tr>
+                <td>2. Diseño</td>
+                <td>Definir cómo será la experiencia final para el usuario.</td>
+                <td>
+                  Wireframes, prototipos interactivos, diseño visual, validación
+                  rápida con el cliente y con usuarios.
+                </td>
+              </tr>
+              <tr>
+                <td>3. Desarrollo</td>
+                <td>Construir la solución técnica respetando lo diseñado.</td>
+                <td>
+                  Maquetación, programación frontend y backend, integración con
+                  servicios, pruebas unitarias y correcciones.
+                </td>
+              </tr>
+              <tr>
+                <td>4. Lanzamiento</td>
+                <td>Publicar el proyecto y preparar su mantenimiento.</td>
+                <td>
+                  Despliegue, configuración de analítica, documentación básica,
+                  formación mínima al equipo cliente.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </section>
+    </main>
+
+    <!-- Pie de página donde muestro el nombre del sitio y el año del proyecto -->
+    <footer class="site-footer">
+      <p>&copy; 2025 TecnoVision Web · Desarrollo de Aplicaciones</p>
+    </footer>
+  </body>
+</html>

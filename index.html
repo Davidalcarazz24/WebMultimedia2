@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- Aquí cargo primero la librería p5.js y mi script de fondo para tener el canvas animado en toda la web -->
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+<script src="js/sketch.js"></script>
+
+<head>
+    <!-- Con este meta indico la codificación de caracteres para evitar problemas con tildes y eñes -->
+    <meta charset="UTF-8">
+    <!-- Aquí hago que el diseño sea responsive y se adapte al ancho de cada dispositivo -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título que se verá en la pestaña del navegador para la página principal -->
+    <title>TecnoVision Web</title>
+
+    <!-- En estos enlaces preparo la carga de la fuente moderna Space Grotesk desde Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Aquí importo la familia de fuentes que quiero usar en toda la interfaz -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Enlazo mi hoja de estilos principal donde tengo todo el diseño del sitio -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- En esta cabecera coloco el título del sitio, las siglas y el menú de navegación -->
+    <header class="site-header">
+        <!-- Bloque de la izquierda donde muestro el nombre del proyecto y una descripción corta -->
+        <div class="titulo-izquierda">
+            <h1>TecnoVision Web</h1>
+            <p>Digital Innovation Lab</p>
+        </div>
+
+        <!-- Aquí sitúo las siglas DA centradas visualmente en la cabecera -->
+        <div class="siglas-centro">
+            <span>DA</span>
+        </div>
+
+        <!-- Menú de enlaces situado a la derecha para navegar por las distintas páginas -->
+        <nav class="nav-derecha">
+            <ul>
+                <!-- Enlace que baja directamente a la sección de imágenes de esta misma página -->
+                <li><a href="#imagenes">Imágenes</a></li>
+                <!-- Enlace a la página index (en este caso apunta a sí misma) -->
+                <li><a href="index.html">Index</a></li>
+                <!-- Enlace al formulario de registro de TecnoVision -->
+                <li><a href="formulario.html">Formulario</a></li>
+                <!-- Enlace a la página de menú / información adicional -->
+                <li><a href="menu.html">Menú</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Esta parte es la sección hero principal, donde presento el mensaje más importante -->
+    <main class="hero">
+        <!-- En este bloque coloco el texto grande que describe qué es TecnoVision Studio -->
+        <section class="hero-text">
+            <h2>
+                TecnoVision Studio<br>
+                Desarrollo de Apps y Web<br>
+                Experiencias Multimedia Interactivas
+            </h2>
+        </section>
+
+        <!-- Aquí preparo el lado derecho con la letra gigante DA dentro de un panel 3D -->
+        <section class="hero-letter-wrapper">
+            <div class="hero-3d">
+                <!-- Este elemento es la letra que luego animo con transformaciones 3D en main.js -->
+                <div class="hero-letter">DA</div>
+                <!-- Esta capa simula la sombra en el suelo para reforzar el efecto de volumen -->
+                <div class="hero-letter-floor"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Sección donde muestro tres tarjetas con imágenes que representan el estilo visual del estudio -->
+    <section id="imagenes" class="imagenes-section">
+        <!-- Título de la sección de galería -->
+        <h3>Nuestro universo visual</h3>
+        <!-- Pequeña explicación de lo que representan estas imágenes -->
+        <p class="imagenes-intro">
+            Estas piezas representan el ADN visual de TecnoVision: formas geométricas, luz,
+            color y volumen al servicio de las interfaces digitales y las experiencias multimedia.
+        </p>
+
+        <!-- Contenedor de las tres cards que componen la galería de ejemplos visuales -->
+        <div class="galeria-cards">
+            <!-- CARD 1: ejemplo centrado en una interfaz futurista -->
+            <article class="card">
+                <figure class="card-image-wrapper">
+                    <!-- Imagen asociada a la primera tarjeta, con su texto alternativo descriptivo -->
+                    <img src="img/imagen1.jpg" alt="Concepto visual de interfaz tecnológica">
+                </figure>
+                <div class="card-body">
+                    <h4>Concepto de interfaz futurista</h4>
+                    <p>
+                        Exploración visual de una interfaz minimalista para paneles de control.<br>
+                        El foco está en la legibilidad y el contraste de elementos clave.<br>
+                        Usamos luz y sombra para simular profundidad en entornos digitales.<br>
+                        Ideal como base para dashboards y aplicaciones web de monitorización.
+                    </p>
+                </div>
+            </article>
+
+            <!-- CARD 2: diseño orientado a una app móvil en modo oscuro -->
+            <article class="card">
+                <figure class="card-image-wrapper">
+                    <!-- Imagen de ejemplo de interfaz móvil en entorno oscuro -->
+                    <img src="img/imagen2.jpg" alt="Visual de aplicación móvil en entorno oscuro">
+                </figure>
+                <div class="card-body">
+                    <h4>Experiencia móvil en modo oscuro</h4>
+                    <p>
+                        Prototipo visual de una app móvil pensada para uso nocturno intensivo.<br>
+                        Combina tonos oscuros con acentos de color azul eléctrico y cian.<br>
+                        El objetivo es reducir la fatiga visual y mantener la jerarquía clara.<br>
+                        Perfecto para aplicaciones de productividad y herramientas creativas.
+                    </p>
+                </div>
+            </article>
+
+            <!-- CARD 3: escena más experimental inspirada en gráficos generativos -->
+            <article class="card">
+                <figure class="card-image-wrapper">
+                    <!-- Imagen relacionada con escenas generativas y efectos multimedia -->
+                    <img src="img/imagen3.jpg" alt="Escena multimedia generativa con formas y luz">
+                </figure>
+                <div class="card-body">
+                    <h4>Escena multimedia generativa</h4>
+                    <p>
+                        Composición inspirada en efectos generativos creados con canvas y p5.js.<br>
+                        Las formas abstractas responden a movimiento, sonido y entrada del usuario.<br>
+                        Es una base perfecta para visualizadores interactivos y juegos ligeros.<br>
+                        Resume la parte más experimental del laboratorio TecnoVision Studio.
+                    </p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Pie de página donde muestro el nombre del sitio y el año del proyecto -->
+    <footer class="site-footer">
+        <p>&copy; 2025 TecnoVision Web · Desarrollo de Aplicaciones</p>
+    </footer>
+
+    <!-- Aquí enlazo el script que se encarga del movimiento 3D de las letras DA del hero -->
+    <script src="js/main.js"></script>
+</body>
+</html>

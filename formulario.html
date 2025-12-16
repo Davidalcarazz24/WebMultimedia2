@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+
+
+<head>
+    <!-- Aquí indico que el documento sigue el estándar HTML5 y está en español -->
+    <meta charset="UTF-8">
+    <!-- Con esta meta hago que la página se adapte bien a móviles y pantallas pequeñas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título que aparecerá en la pestaña del navegador para esta página de formulario -->
+    <title>Formulario · TecnoVision Web</title>
+
+    <!-- En estos enlaces preparo la carga de la fuente Space Grotesk desde Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Aquí importo la familia de fuentes que usaré en todo el sitio -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Enlazo el archivo principal de estilos CSS donde tengo todo el diseño de la web -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<!-- Cargo la librería p5.js desde un CDN para poder usar el canvas animado del fondo -->
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+<!-- Después cargo mi propio script sketch.js, donde dibujo el fondo interactivo -->
+<script src="js/sketch.js"></script>
+
+<body>
+    <!-- Cabecera principal de la página, donde muestro el nombre del sitio y el menú -->
+    <header class="site-header">
+        <!-- En este bloque muestro el título de la web y una pequeña descripción -->
+        <div class="titulo-izquierda">
+            <h1>TecnoVision Web</h1>
+            <p>Digital Innovation Lab</p>
+        </div>
+
+        <!-- Aquí coloco las siglas DA centradas dentro de la cabecera -->
+        <div class="siglas-centro">
+            <span>DA</span>
+        </div>
+
+        <!-- Menú de navegación principal con enlaces a las diferentes páginas -->
+        <nav class="nav-derecha">
+            <ul>
+                <!-- Enlace que me lleva a la sección de imágenes dentro del index -->
+                <li><a href="index.html#imagenes">Imágenes</a></li>
+                <!-- Enlace a la página de inicio -->
+                <li><a href="index.html">Index</a></li>
+                <!-- Enlace a este mismo formulario de registro -->
+                <li><a href="formulario.html">Formulario</a></li>
+                <!-- Enlace a la página de información de menú -->
+                <li><a href="menu.html">Menú</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Zona principal de la página donde sitúo el formulario centrado -->
+    <main class="form-main">
+        <!-- Contenedor del formulario con el estilo de tarjeta oscura -->
+        <section class="form-container">
+            <!-- Título del formulario que explica de qué trata el registro -->
+            <h2>Formulario de Registro TecnoVision</h2>
+            <!-- Párrafo introductorio donde explico el propósito del formulario y los campos obligatorios -->
+            <p class="form-intro">
+                Rellena este formulario con tus datos para participar en los proyectos multimedia
+                de TecnoVision Studio. Todos los campos marcados con * son obligatorios.
+            </p>
+
+            <!-- Inicio del formulario. Ahora mismo el action no envía a ningún servidor real -->
+            <form action="#" method="post">
+                <!-- Bloque para agrupar la información de datos personales del participante -->
+                <fieldset>
+                    <legend>Datos personales</legend>
+
+                    <!-- Primera fila: nombre y apellidos del usuario -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <!-- Campo de texto obligatorio para el nombre -->
+                            <label for="nombre">Nombre *</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+
+                        <div class="form-group">
+                            <!-- Campo de texto obligatorio para los apellidos -->
+                            <label for="apellidos">Apellidos *</label>
+                            <input type="text" id="apellidos" name="apellidos" required>
+                        </div>
+                    </div>
+
+                    <!-- Segunda fila: documento de identidad, fecha de nacimiento y género -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <!-- Campo de texto opcional para DNI o NIE -->
+                            <label for="dni">DNI / NIE</label>
+                            <input type="text" id="dni" name="dni">
+                        </div>
+
+                        <div class="form-group">
+                            <!-- Campo obligatorio de tipo fecha para la fecha de nacimiento -->
+                            <label for="fecha">Fecha de nacimiento *</label>
+                            <input type="date" id="fecha" name="fecha" required>
+                        </div>
+
+                        <div class="form-group">
+                            <!-- Lista desplegable para seleccionar el género (no es obligatorio) -->
+                            <label for="genero">Género</label>
+                            <select id="genero" name="genero">
+                                <option value="">Selecciona una opción</option>
+                                <option value="mujer">Mujer</option>
+                                <option value="hombre">Hombre</option>
+                                <option value="otro">Otro / Prefiero no decirlo</option>
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Bloque para los datos de contacto del usuario -->
+                <fieldset>
+                    <legend>Contacto</legend>
+
+                    <!-- Fila con el correo electrónico y el teléfono de contacto -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <!-- Campo obligatorio para el email, con validación básica de tipo email -->
+                            <label for="email">Correo electrónico *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <!-- Campo obligatorio para el teléfono del usuario -->
+                            <label for="telefono">Teléfono *</label>
+                            <input type="tel" id="telefono" name="telefono" required>
+                        </div>
+                    </div>
+
+                    <!-- Fila donde dejo un campo de dirección más amplio -->
+                    <div class="form-row">
+                        <div class="form-group form-group-wide">
+                            <!-- Campo opcional para la dirección completa -->
+                            <label for="direccion">Dirección</label>
+                            <input type="text" id="direccion" name="direccion" placeholder="Calle, número, piso...">
+                        </div>
+                    </div>
+
+                    <!-- Fila con código postal, ciudad y país -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <!-- Campo de texto para el código postal -->
+                            <label for="cp">Código Postal</label>
+                            <input type="text" id="cp" name="cp">
+                        </div>
+
+                        <div class="form-group">
+                            <!-- Campo de texto para la ciudad de residencia -->
+                            <label for="ciudad">Ciudad</label>
+                            <input type="text" id="ciudad" name="ciudad">
+                        </div>
+
+                        <div class="form-group">
+                            <!-- Lista desplegable para seleccionar el país -->
+                            <label for="pais">País</label>
+                            <select id="pais" name="pais">
+                                <option value="">Selecciona un país</option>
+                                <option value="es">España</option>
+                                <option value="pt">Portugal</option>
+                                <option value="fr">Francia</option>
+                                <option value="it">Italia</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Bloque donde pregunto por los estudios y el perfil técnico del usuario -->
+                <fieldset>
+                    <legend>Perfil académico y técnico</legend>
+
+                    <!-- Fila con el nivel de estudios y la especialidad -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <!-- Selección obligatoria del nivel de estudios -->
+                            <label for="estudios">Nivel de estudios *</label>
+                            <select id="estudios" name="estudios" required>
+                                <option value="">Selecciona una opción</option>
+                                <option value="eso">ESO</option>
+                                <option value="bach">Bachillerato</option>
+                                <option value="ciclo-medio">Ciclo formativo de grado medio</option>
+                                <option value="ciclo-superior">Ciclo formativo de grado superior</option>
+                                <option value="grado">Grado universitario</option>
+                                <option value="postgrado">Postgrado / Máster</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <!-- Campo de texto opcional para indicar la rama o especialidad -->
+                            <label for="especialidad">Especialidad / Rama</label>
+                            <input type="text" id="especialidad" name="especialidad" placeholder="Ej. Desarrollo de Aplicaciones, Diseño, etc.">
+                        </div>
+                    </div>
+
+                    <!-- Fila en columna donde agrupo los checkboxes de áreas de interés y tecnologías -->
+                    <div class="form-row form-row-column">
+                        <div class="form-group">
+                            <!-- Aquí el usuario marca sus áreas principales de interés -->
+                            <span class="label-block">Áreas de interés principal *</span>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="area[]" value="frontend"> Desarrollo Frontend
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="area[]" value="backend"> Desarrollo Backend
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="area[]" value="diseno"> Diseño UI / UX
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="area[]" value="multimedia"> Multimedia / Canvas / p5.js
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="area[]" value="otros"> Otros
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <!-- Lista de tecnologías para marcar cuáles maneja el usuario -->
+                            <span class="label-block">Tecnologías que manejas</span>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="tec[]" value="html"> HTML5
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="tec[]" value="css"> CSS3
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="tec[]" value="js"> JavaScript
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="tec[]" value="java"> Java
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="tec[]" value="python"> Python
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="tec[]" value="otros"> Otros
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Bloque donde pregunto por la disponibilidad y algunos detalles del proyecto -->
+                <fieldset>
+                    <legend>Disponibilidad y proyecto</legend>
+
+                    <!-- Fila con el horario preferente y el tipo de modalidad -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <!-- Grupo de radios para que el usuario elija un único horario preferente -->
+                            <span class="label-block">Horario preferente *</span>
+                            <label class="radio-inline">
+                                <input type="radio" name="horario" value="manana" required> Mañana
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="horario" value="tarde"> Tarde
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="horario" value="completo"> Jornada completa
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <!-- Selección de la modalidad de participación: presencial, online o mixta -->
+                            <label for="modalidad">Modalidad</label>
+                            <select id="modalidad" name="modalidad">
+                                <option value="">Indiferente</option>
+                                <option value="presencial">Presencial</option>
+                                <option value="online">Online</option>
+                                <option value="mixto">Mixto</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Fila en columna con áreas de texto para motivación y experiencia -->
+                    <div class="form-row form-row-column">
+                        <div class="form-group form-group-wide">
+                            <!-- Campo obligatorio donde el usuario explica sus motivos para participar -->
+                            <label for="motivacion">Cuéntanos brevemente tu motivación *</label>
+                            <textarea id="motivacion" name="motivacion" rows="4" required
+                                placeholder="¿Por qué te interesa participar en proyectos multimedia con TecnoVision?"></textarea>
+                        </div>
+
+                        <div class="form-group form-group-wide">
+                            <!-- Campo opcional para que el usuario describa su experiencia previa -->
+                            <label for="experiencia">Experiencia previa en proyectos (opcional)</label>
+                            <textarea id="experiencia" name="experiencia" rows="3"
+                                placeholder="Describe trabajos, prácticas, proyectos personales, hackathons, etc."></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Bloque para subida de documentos y aceptación de privacidad -->
+                <fieldset>
+                    <legend>Documentación y privacidad</legend>
+
+                    <!-- Fila para subir el CV en formato PDF -->
+                    <div class="form-row">
+                        <div class="form-group form-group-wide">
+                            <!-- Input de tipo archivo para adjuntar el currículum en PDF -->
+                            <label for="cv">Sube tu CV (PDF, máx. 5MB)</label>
+                            <input type="file" id="cv" name="cv" accept=".pdf">
+                        </div>
+                    </div>
+
+                    <!-- Fila donde añado las casillas de suscripción y aceptación de privacidad -->
+                    <div class="form-row form-row-column">
+                        <div class="form-group form-group-wide">
+                            <!-- Checkbox opcional para recibir un boletín de novedades -->
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="boletin" name="boletin">
+                                Deseo recibir novedades y proyectos de TecnoVision por correo electrónico.
+                            </label>
+                        </div>
+
+                        <div class="form-group form-group-wide">
+                            <!-- Checkbox obligatorio donde el usuario acepta la política de privacidad -->
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="privacidad" name="privacidad" required>
+                                He leído y acepto la política de privacidad y el tratamiento de datos personales. *
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Zona inferior del formulario con los botones de acción -->
+                <div class="form-actions">
+                    <!-- Botón que reinicia todos los campos del formulario -->
+                    <button type="reset" class="btn-secondary">Borrar formulario</button>
+                    <!-- Botón principal para enviar la solicitud del formulario -->
+                    <button type="submit" class="btn-primary">Enviar solicitud</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <!-- Pie de página donde muestro el nombre del sitio y el año -->
+    <footer class="site-footer">
+        <p>&copy; 2025 TecnoVision Web · Desarrollo de Aplicaciones</p>
+    </footer>
+
+ </body>
+</html>
