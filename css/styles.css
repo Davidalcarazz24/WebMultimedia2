@@ -1,588 +1,423 @@
+/* =========================================================
+   styles.css — UI + Layout (<= 300 líneas)
+   ========================================================= */
+
+/* =========================================================
+   ÍNDICE (qué hay en cada parte)
+   1) Reset global (* margin/padding 0 + box-sizing)
+   2) Base (body: fuente + colores)
+   3) Header (site-header + título + siglas + navegación)
+   4) Hero (hero + texto + letra 3D)
+   5) Sección imágenes (galería + cards)
+   6) Formulario (contenedor + fieldset + filas + inputs)
+   7) Botones (btn-primary / btn-secondary)
+   8) Menú (menu-main + container + tablas)
+   9) Footer (site-footer)
+  10) Responsive (900px / 768px)
+  11) Capas (z-index sobre canvas)
+   ========================================================= */
+
+/* =========================================================
+   1) Reset global
+   ========================================================= */
 /* Aquí dejo todos los elementos con margen y padding a 0 para empezar desde cero el diseño */
-* {
-    margin: 0; /* Quito el margen por defecto del navegador */
-    padding: 0; /* Quito el relleno por defecto */
-    box-sizing: border-box; /* Con esto las medidas cuentan también el padding y el borde */
+*{
+  margin:0;                 /* Quito el margen por defecto del navegador */
+  padding:0;                /* Quito el relleno por defecto */
+  box-sizing:border-box;    /* Con esto las medidas cuentan también el padding y el borde */
 }
 
+/* =========================================================
+   2) Base
+   ========================================================= */
 /* En el body defino la fuente principal, el color de fondo y el color del texto general */
-body {
-    font-family: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; /* Elijo la fuente que voy a usar en casi toda la página */
-    background-color: #000000;   /* Pongo el fondo de toda la página en negro */
-    color: #ffffff; /* Hago que el texto por defecto sea blanco para que se lea bien sobre el fondo oscuro */
+body{
+  font-family:"Space Grotesk",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; /* Elijo la fuente que voy a usar en casi toda la página */
+  background-color:#000000; /* Pongo el fondo de toda la página en negro */
+  color:#ffffff;            /* Hago que el texto por defecto sea blanco para que se lea bien sobre el fondo oscuro */
 }
 
+/* =========================================================
+   3) Header
+   ========================================================= */
 /* Esta es la cabecera superior del sitio, donde coloco el título y el menú */
-.site-header {
-    display: flex; /* Uso flexbox para colocar los elementos en una misma fila */
-    align-items: center; /* Centro verticalmente el contenido dentro de la cabecera */
-    justify-content: space-between; /* Separo los elementos a izquierda y derecha */
-    padding: 15px 40px; /* Añadido de espacio interno alrededor del contenido */
-    background-color: #111827;   /* Color de fondo oscuro para la cabecera */
-    color: #ffffff; /* Color de texto en blanco dentro de la cabecera */
+.site-header{
+  display:flex;                    /* Uso flexbox para colocar los elementos en una misma fila */
+  align-items:center;              /* Centro verticalmente el contenido dentro de la cabecera */
+  justify-content:space-between;   /* Separo los elementos a izquierda y derecha */
+  padding:15px 40px;               /* Añadido de espacio interno alrededor del contenido */
+  background-color:#111827;        /* Color de fondo oscuro para la cabecera */
+  color:#ffffff;                   /* Color de texto en blanco dentro de la cabecera */
 }
 
 /* Este contenedor ocupa la zona izquierda de la cabecera, donde va el título del sitio */
-.titulo-izquierda {
-    flex: 1; /* Hago que esta columna ocupe una parte flexible del espacio disponible */
-}
+.titulo-izquierda{ flex:1; }       /* Hago que esta columna ocupe una parte flexible del espacio disponible */
 
 /* Aquí doy estilo al texto principal del título en la cabecera */
-.titulo-izquierda h1 {
-    font-size: 1.7rem; /* Tamaño del título principal */
-    font-weight: 600; /* Hago que el título se vea algo más grueso */
-    letter-spacing: 0.04em; /* Separación leve entre las letras del título */
+.titulo-izquierda h1{
+  font-size:1.7rem;                /* Tamaño del título principal */
+  font-weight:600;                 /* Hago que el título se vea algo más grueso */
+  letter-spacing:.04em;            /* Separación leve entre las letras del título */
 }
 
 /* Subtítulo o texto secundario debajo del h1 en la cabecera */
-.titulo-izquierda p {
-    font-size: 0.9rem; /* Tamaño un poco más pequeño para este texto */
-    opacity: 0.8; /* Bajo un poco la opacidad para que se vea más suave */
-    font-weight: 300; /* Uso un grosor de letra más fino */
+.titulo-izquierda p{
+  font-size:.9rem;                 /* Tamaño un poco más pequeño para este texto */
+  opacity:.8;                      /* Bajo un poco la opacidad para que se vea más suave */
+  font-weight:300;                 /* Uso un grosor de letra más fino */
 }
 
 /* Aquí defino la parte central de la cabecera, donde coloco las siglas DA alineadas al centro */
-.siglas-centro {
-    flex: 1; /* Esta zona también ocupa una parte flexible del ancho */
-    text-align: center; /* Centro el contenido horizontalmente */
+.siglas-centro{
+  flex:1;                          /* Esta zona también ocupa una parte flexible del ancho */
+  text-align:center;               /* Centro el contenido horizontalmente */
 }
 
 /* Estilo que aplico directamente a las siglas DA */
-.siglas-centro span {
-    font-size: 4rem; /* Hago las siglas bastante grandes */
-    font-weight: 700; /* Les doy un grosor fuerte para que llamen la atención */
-    letter-spacing: 0.25rem; /* Aumento la separación entre letras para darle más presencia */
+.siglas-centro span{
+  font-size:4rem;                  /* Hago las siglas bastante grandes */
+  font-weight:700;                 /* Les doy un grosor fuerte para que llamen la atención */
+  letter-spacing:.25rem;           /* Aumento la separación entre letras para darle más presencia */
 }
 
 /* Esta sección es la zona derecha de la cabecera, donde coloco la navegación */
-.nav-derecha {
-    flex: 1; /* Ocupa también una tercera parte flexible del header */
-    display: flex; /* Uso flex para alinear el contenido interno */
-    justify-content: flex-end; /* Alineo los elementos al extremo derecho */
+.nav-derecha{
+  flex:1;                          /* Ocupa también una tercera parte flexible del header */
+  display:flex;                    /* Uso flex para alinear el contenido interno */
+  justify-content:flex-end;        /* Alineo los elementos al extremo derecho */
 }
 
 /* Aquí quito los estilos de lista y organizo los enlaces del menú */
-.nav-derecha ul {
-    list-style: none; /* Elimino los puntos de la lista */
-    display: flex; /* Pongo los elementos de la lista en una fila */
-    align-items: center; /* Los centro verticalmente */
-    gap: 60px; /* Pongo espacio entre cada elemento del menú */
+.nav-derecha ul{
+  list-style:none;                 /* Elimino los puntos de la lista */
+  display:flex;                    /* Pongo los elementos de la lista en una fila */
+  align-items:center;              /* Los centro verticalmente */
+  gap:60px;                        /* Pongo espacio entre cada elemento del menú */
 }
 
 /* Estilo de los enlaces de navegación de la cabecera */
-.nav-derecha a {
-    text-decoration: none; /* Quito el subrayado de los enlaces */
-    color: #e5e7eb; /* Color de texto ligeramente gris y claro */
-    font-size: 0.95rem; /* Tamaño de letra para el menú */
-    font-weight: 300; /* Pongo el texto del menú con un peso ligero */
-    padding: 3px 8px; /* Añadido de relleno para que sea más fácil hacer clic */
-    border-radius: 4px; /* Bordes suavemente redondeados */
-    transition: background-color 0.2s, color 0.2s; /* Animo el cambio de color en hover para que sea más suave */
+.nav-derecha a{
+  text-decoration:none;            /* Quito el subrayado de los enlaces */
+  color:#e5e7eb;                   /* Color de texto ligeramente gris y claro */
+  font-size:.95rem;                /* Tamaño de letra para el menú */
+  font-weight:300;                 /* Pongo el texto del menú con un peso ligero */
+  padding:3px 8px;                 /* Añadido de relleno para que sea más fácil hacer clic */
+  border-radius:4px;               /* Bordes suavemente redondeados */
+  transition:background-color .2s,color .2s; /* Animo el cambio de color en hover para que sea más suave */
 }
 
 /* Efecto cuando paso el ratón por encima de los enlaces del menú */
-.nav-derecha a:hover {
-    background-color: #e5e7eb; /* Cambio el fondo a un tono claro */
-    color: #111827; /* Cambio el texto a oscuro para que haya contraste con el fondo */
+.nav-derecha a:hover{
+  background-color:#e5e7eb;        /* Cambio el fondo a un tono claro */
+  color:#111827;                   /* Cambio el texto a oscuro para que haya contraste con el fondo */
 }
 
+/* =========================================================
+   4) Hero
+   ========================================================= */
 /* Esta es la sección principal tipo hero, donde muestro el mensaje principal de la página */
-.hero {
-    display: flex; /* Reparto el hero en dos columnas: texto y letra 3D */
-    align-items: center; /* Centro verticalmente el contenido dentro del hero */
-    justify-content: space-between; /* Dejo espacio entre el bloque de texto y la letra gigante */
-    min-height: calc(100vh - 80px); /* Hago que el hero ocupe casi toda la ventana, restando la cabecera */
-    padding: 40px 60px; /* Pongo márgenes internos amplios */
-    background: radial-gradient(circle at 70% 40%, rgba(56, 189, 248, 0.18), transparent 55%); /* Aplico un degradado radial suave para darle un toque visual */
+.hero{
+  display:flex;                    /* Reparto el hero en dos columnas: texto y letra 3D */
+  align-items:center;              /* Centro verticalmente el contenido dentro del hero */
+  justify-content:space-between;   /* Dejo espacio entre el bloque de texto y la letra gigante */
+  min-height:calc(100vh - 80px);   /* Hago que el hero ocupe casi toda la ventana, restando la cabecera */
+  padding:40px 60px;               /* Pongo márgenes internos amplios */
+  background:radial-gradient(circle at 70% 40%, rgba(56,189,248,.18), transparent 55%); /* Aplico un degradado radial suave para darle un toque visual */
 }
 
 /* Bloque donde va el texto destacado dentro del hero */
-.hero-text {
-    flex: 1; /* Hago que ocupe la mitad aproximada del ancho disponible */
-    max-width: 45%; /* Limito el ancho máximo para que no se haga demasiado grande */
+.hero-text{
+  flex:1;                          /* Hago que ocupe la mitad aproximada del ancho disponible */
+  max-width:45%;                   /* Limito el ancho máximo para que no se haga demasiado grande */
 }
 
 /* Título principal dentro del hero */
-.hero-text h2 {
-    font-size: 3.4rem; /* Un tamaño bastante grande para llamar la atención */
-    line-height: 1.1; /* Ajusto la separación vertical entre líneas */
-    font-weight: 400; /* Uso un grosor medio para el título, no muy pesado */
+.hero-text h2{
+  font-size:3.4rem;                /* Un tamaño bastante grande para llamar la atención */
+  line-height:1.1;                 /* Ajusto la separación vertical entre líneas */
+  font-weight:400;                 /* Uso un grosor medio para el título, no muy pesado */
 }
 
 /* Contenedor donde coloco la letra gigante del hero a la derecha */
-.hero-letter-wrapper {
-    flex: 1; /* Ocupa el resto del espacio del hero */
-    display: flex; /* Uso flex para centrar el contenido interno */
-    justify-content: center; /* Centro horizontalmente la letra */
-    align-items: center; /* Centro verticalmente la letra */
+.hero-letter-wrapper{
+  flex:1;                          /* Ocupa el resto del espacio del hero */
+  display:flex;                    /* Uso flex para centrar el contenido interno */
+  justify-content:center;          /* Centro horizontalmente la letra */
+  align-items:center;              /* Centro verticalmente la letra */
 }
 
 /* Panel con estilo 3D en el que se apoya la letra del hero */
-.hero-3d {
-    position: relative; /* Necesito posición relativa para colocar elementos absolutos dentro */
-    padding: 40px 60px; /* Relleno interno alrededor de la letra */
-    border-radius: 24px; /* Bordes redondeados para el panel */
-    background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.24), transparent 60%),
-                radial-gradient(circle at 50% 120%, rgba(15, 23, 42, 0.9), transparent 65%); /* Dos degradados radiales para el efecto de luz y sombra */
-    box-shadow:
-        0 30px 80px rgba(0, 0, 0, 0.85), /* Sombra bastante marcada por debajo */
-        0 0 0 1px rgba(148, 163, 184, 0.25); /* Borde suave alrededor a modo de contorno */
-    transform-style: preserve-3d; /* Conservo el contexto 3D para posibles transformaciones */
+.hero-3d{
+  position:relative;               /* Necesito posición relativa para colocar elementos absolutos dentro */
+  padding:40px 60px;               /* Relleno interno alrededor de la letra */
+  border-radius:24px;              /* Bordes redondeados para el panel */
+  background:
+    radial-gradient(circle at 50% 0%, rgba(56,189,248,.24), transparent 60%),
+    radial-gradient(circle at 50% 120%, rgba(15,23,42,.9), transparent 65%); /* Dos degradados radiales para el efecto de luz y sombra */
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.85),   /* Sombra bastante marcada por debajo */
+    0 0 0 1px rgba(148,163,184,.25); /* Borde suave alrededor a modo de contorno */
+  transform-style:preserve-3d;     /* Conservo el contexto 3D para posibles transformaciones */
 }
 
 /* Estilo de la letra gigante que simula un efecto 3D */
-.hero-letter {
-    position: relative; /* Necesario para controlar la posición de la letra frente al resto */
-    z-index: 1; /* Pongo la letra por encima de la sombra y del "suelo" */
-
-    font-size: clamp(7rem, 18vw, 13rem); /* Tamaño enorme, adaptado a la anchura de la ventana */
-    font-weight: 700; /* Letra muy gruesa para ser protagonista */
-    letter-spacing: 0.25em; /* Separación entre las letras para que se vea más contundente */
-    color: #020617; /* Color de base muy oscuro para el frente de la letra */
-
-    text-shadow:
-        0px 1px 0 #1d4ed8,
-        0px 2px 0 #1d4ed8,
-        0px 3px 0 #1d4ed8,
-        0px 4px 0 #1d4ed8,
-        0px 5px 0 #1d4ed8,
-        0px 6px 0 #2563eb,
-        0px 7px 0 #2563eb,
-        0px 8px 0 #38bdf8,
-        0px 12px 22px rgba(0, 0, 0, 0.9); /* Con esta serie de sombras juego con diferentes tonos de azul y un desenfoque para simular profundidad */
+.hero-letter{
+  position:relative; z-index:1;    /* Pongo la letra por encima de la sombra y del "suelo" */
+  font-size:clamp(7rem,18vw,13rem);/* Tamaño enorme, adaptado a la anchura de la ventana */
+  font-weight:700;                 /* Letra muy gruesa para ser protagonista */
+  letter-spacing:.25em;            /* Separación entre las letras para que se vea más contundente */
+  color:#020617;                   /* Color de base muy oscuro para el frente de la letra */
+  text-shadow:                     /* Con sombras se simula profundidad */
+    0 1px 0 #1d4ed8, 0 2px 0 #1d4ed8, 0 3px 0 #1d4ed8, 0 4px 0 #1d4ed8,
+    0 5px 0 #1d4ed8, 0 6px 0 #2563eb, 0 7px 0 #2563eb, 0 8px 0 #38bdf8,
+    0 12px 22px rgba(0,0,0,.9);
 }
 
 /* Esta capa representa una sombra en el suelo para dar más sensación de 3D a la letra */
-.hero-letter-floor {
-    position: absolute; /* Coloco la sombra en relación al contenedor .hero-3d */
-    bottom: 18px; /* La sitúo un poco por encima del borde inferior */
-    left: 50%; /* La centro horizontalmente */
-    transform: translateX(-50%); /* Ajusto el centrado respecto al punto medio */
-    width: 70%; /* Hago que la sombra no ocupe todo el ancho del panel */
-    height: 32px; /* Altura de la sombra */
-    background: radial-gradient(ellipse at center,
-        rgba(15, 23, 42, 0.95) 0%,
-        rgba(15, 23, 42, 0.7) 35%,
-        transparent 75%); /* Degradado elíptico para que la sombra se vea más realista */
-    filter: blur(8px); /* Aplico desenfoque para suavizar la sombra */
-    opacity: 0.9; /* La dejo casi opaca para que el efecto sea visible */
-    pointer-events: none; /* Hago que la sombra no interfiera con el ratón */
-    z-index: 0; /* Coloco la sombra por debajo de la letra */
+.hero-letter-floor{
+  position:absolute; bottom:18px; left:50%;                  /* Coloco la sombra en relación al contenedor .hero-3d */
+  transform:translateX(-50%);                                /* Ajusto el centrado respecto al punto medio */
+  width:70%; height:32px;                                    /* Tamaño de la sombra */
+  background:radial-gradient(ellipse at center, rgba(15,23,42,.95) 0%, rgba(15,23,42,.7) 35%, transparent 75%); /* Degradado elíptico */
+  filter:blur(8px); opacity:.9; pointer-events:none; z-index:0; /* Suavizado + no interfiere */
 }
 
+/* =========================================================
+   5) Sección imágenes / cards
+   ========================================================= */
 /* ======= Sección de imágenes / tarjetas que aparece en la página principal (index) ======= */
-
-.imagenes-section {
-    max-width: 1100px; /* Limito el ancho máximo de la sección para que no se expanda demasiado */
-    margin: 40px auto 60px; /* Centro la sección horizontalmente y pongo márgenes arriba y abajo */
-    padding: 0 20px; /* Dejo un poco de espacio a los lados dentro de la sección */
+.imagenes-section{
+  max-width:1100px; margin:40px auto 60px; padding:0 20px;   /* Contenedor centrado */
 }
-
-/* Título de la sección de imágenes */
-.imagenes-section h3 {
-    font-size: 1.4rem; /* Tamaño de letra del título de esta sección */
-    margin-bottom: 6px; /* Espacio debajo del título */
+.imagenes-section h3{ font-size:1.4rem; margin-bottom:6px; } /* Título sección */
+.imagenes-intro{
+  font-size:.95rem; color:#d1d5db; margin-bottom:18px;       /* Texto intro */
 }
-
-/* Texto introductorio de la sección de imágenes */
-.imagenes-intro {
-    font-size: 0.95rem; /* Tamaño de letra para la introducción */
-    color: #d1d5db; /* Color gris claro para diferenciarlo del título */
-    margin-bottom: 18px; /* Espacio después del párrafo de introducción */
+.galeria-cards{
+  display:flex; flex-wrap:wrap; gap:20px;                    /* Layout flexible */
+  justify-content:space-between;                             /* Distribución */
 }
-
-/* Contenedor de todas las tarjetas (cards) de imágenes */
-.galeria-cards {
-    display: flex; /* Muestro las tarjetas en un layout flexible */
-    flex-wrap: wrap; /* Permito que las tarjetas bajen a otra fila si no caben */
-    gap: 20px; /* Espacio entre las tarjetas */
-    justify-content: space-between; /* Distribuyo las tarjetas a lo largo del ancho disponible */
+.card{
+  background-color:#020617; border-radius:14px; overflow:hidden; /* Caja card */
+  flex:1 1 30%; min-width:260px; max-width:340px;            /* Medidas */
+  display:flex; flex-direction:column;                       /* Imagen arriba / texto abajo */
+  box-shadow:0 16px 40px rgba(0,0,0,.5);                     /* Sombra */
+  border:1px solid rgba(148,163,184,.35);                    /* Borde suave */
 }
-
-/* Cada tarjeta individual que forma la galería de imágenes */
-.card {
-    background-color: #020617; /* Fondo oscuro para la tarjeta */
-    border-radius: 14px; /* Bordes redondeados para la card */
-    overflow: hidden; /* Oculto el contenido que se salga del borde redondeado */
-    flex: 1 1 30%; /* Permito que la card crezca y se reduzca, con base del 30% */
-    min-width: 260px; /* Ancho mínimo para que no se quede demasiado estrecha */
-    max-width: 340px; /* Ancho máximo para mantener una proporción coherente */
-    display: flex; /* Uso flex para poder organizar el contenido de la tarjeta en columna */
-    flex-direction: column; /* Coloco imagen arriba y texto abajo */
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5); /* Sombra para levantar la tarjeta del fondo */
-    border: 1px solid rgba(148, 163, 184, 0.35); /* Borde suave alrededor de la tarjeta */
+.card-image-wrapper{ width:100%; overflow:hidden; max-height:220px; } /* Marco imagen */
+.card-image-wrapper img{
+  width:100%; height:100%; object-fit:cover; display:block;  /* Ajuste imagen */
+  transition:transform .4s ease;                             /* Zoom suave */
 }
+.card:hover .card-image-wrapper img{ transform:scale(1.05); }/* Hover zoom */
+.card-body{ padding:14px 14px 16px; }                        /* Texto card */
+.card-body h4{ font-size:1rem; margin-bottom:6px; }          /* Título card */
+.card-body p{ font-size:.85rem; color:#cbd5f5; line-height:1.4; } /* Descripción */
 
-/* Contenedor de la imagen dentro de la card */
-.card-image-wrapper {
-    width: 100%; /* La imagen ocupa todo el ancho de la tarjeta */
-    overflow: hidden; /* Oculto posibles recortes al hacer zoom en hover */
-    max-height: 220px; /* Limito la altura de la imagen para que todas queden equilibradas */
-}
-
-/* La imagen dentro de la tarjeta */
-.card-image-wrapper img {
-    width: 100%; /* La imagen se adapta al ancho de su contenedor */
-    height: 100%; /* Ocupa toda la altura disponible del contenedor */
-    object-fit: cover; /* Recorto la imagen si es necesario para rellenar todo el espacio */
-    display: block; /* Evito espacios raros debajo de la imagen */
-    transition: transform 0.4s ease; /* Animo el zoom suave cuando paso el ratón por encima */
-}
-
-/* Efecto de zoom sobre la imagen al hacer hover en la card */
-.card:hover .card-image-wrapper img {
-    transform: scale(1.05); /* Aumento un poco el tamaño de la imagen para hacer un efecto de zoom */
-}
-
-/* Contenido de texto de la tarjeta (título y descripción) */
-.card-body {
-    padding: 14px 14px 16px; /* Relleno interno del texto dentro de la card */
-}
-
-/* Título de cada tarjeta */
-.card-body h4 {
-    font-size: 1rem; /* Tamaño medio para el subtítulo de la card */
-    margin-bottom: 6px; /* Espacio debajo del título de la tarjeta */
-}
-
-/* Párrafo descriptivo de la tarjeta */
-.card-body p {
-    font-size: 0.85rem; /* Letra un poco más pequeña para el texto descriptivo */
-    color: #cbd5f5; /* Color claro para destacar sobre el fondo oscuro */
-    line-height: 1.4; /* Separación entre líneas para mejorar la lectura */
-}
-
+/* =========================================================
+   6) Formulario
+   ========================================================= */
 /* ====== Sección del formulario (archivo formulario.html) ====== */
+.form-main{
+  min-height:calc(100vh - 80px);                             /* Casi toda la pantalla */
+  padding:40px 20px 60px;                                    /* Espacio */
+  display:flex; justify-content:center; align-items:flex-start; /* Centrado horizontal */
+  background:radial-gradient(circle at 10% 20%, rgba(56,189,248,.15), transparent 55%); /* Luz suave */
+}
+.form-container{
+  width:100%; max-width:1000px;                              /* Ancho controlado */
+  background-color:#020617; border-radius:16px;              /* Caja formulario */
+  padding:30px 30px 35px;                                    /* Padding */
+  box-shadow:0 20px 45px rgba(0,0,0,.6);                     /* Sombra */
+  border:1px solid rgba(148,163,184,.25);                    /* Borde */
+}
+.form-container h2{ font-size:2rem; margin-bottom:8px; }     /* Título */
+.form-intro{ font-size:.95rem; color:#cbd5f5; margin-bottom:20px; } /* Intro */
 
-.form-main {
-    min-height: calc(100vh - 80px); /* Hago que la zona del formulario ocupe casi toda la altura de la ventana */
-    padding: 40px 20px 60px; /* Dejo espacio alrededor del formulario */
-    display: flex; /* Uso flex para centrar el formulario dentro de esta área */
-    justify-content: center; /* Centro el formulario horizontalmente */
-    align-items: flex-start; /* Alineo el formulario arriba, no centrado verticalmente */
-    background: radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.15), transparent 55%); /* Degradado radial para dar un ligero efecto de luz */
+form fieldset{
+  border:1px solid rgba(148,163,184,.4); border-radius:12px; /* Caja campos */
+  padding:18px 18px 16px; margin-bottom:18px;
+}
+form legend{
+  padding:0 8px; font-size:.95rem; font-weight:500;          /* Título fieldset */
+  color:#e5e7eb;
 }
 
-/* Contenedor general del formulario */
-.form-container {
-    width: 100%; /* El contenedor puede usar todo el ancho disponible */
-    max-width: 1000px; /* Pero mantengo un máximo para que no sea muy ancho en pantallas grandes */
-    background-color: #020617; /* Fondo oscuro para el recuadro del formulario */
-    border-radius: 16px; /* Bordes redondeados en el contenedor */
-    padding: 30px 30px 35px; /* Espacio interno alrededor de los elementos del formulario */
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6); /* Sombra para destacar el formulario sobre el fondo */
-    border: 1px solid rgba(148, 163, 184, 0.25); /* Borde ligero para definir el contorno */
+.form-row{
+  display:flex; gap:16px; margin-top:10px; flex-wrap:wrap;   /* Filas de campos */
+}
+.form-row-column{ flex-direction:column; }                   /* Variante columna */
+
+.form-group{
+  flex:1; min-width:180px;                                   /* Tamaño mínimo */
+  display:flex; flex-direction:column;                       /* Label encima */
+}
+.form-group-wide{ min-width:100%; }                          /* Ocupa toda la fila */
+
+label{
+  font-size:.85rem; margin-bottom:4px; color:#e5e7eb;        /* Etiquetas */
+}
+.label-block{
+  display:block; font-size:.85rem; margin-bottom:6px;        /* Label bloque */
+  color:#e5e7eb;
 }
 
-/* Título principal del formulario */
-.form-container h2 {
-    font-size: 2rem; /* Tamaño del encabezado del formulario */
-    margin-bottom: 8px; /* Espacio debajo del título */
+input[type="text"], input[type="email"], input[type="tel"], input[type="date"],
+input[type="file"], select, textarea{
+  background-color:#020617;                                  /* Fondo input */
+  border:1px solid rgba(148,163,184,.6);                     /* Borde */
+  border-radius:8px; padding:8px 10px;                       /* Tamaño */
+  font-size:.9rem; color:#e5e7eb; outline:none;              /* Texto + sin outline nativo */
+  transition:border-color .2s, box-shadow .2s, background-color .2s; /* Animación */
+}
+input[type="file"]{ padding:6px 8px; }                       /* Ajuste archivo */
+textarea{ resize:vertical; }                                 /* Solo vertical */
+
+input:focus, select:focus, textarea:focus{
+  border-color:#38bdf8;                                      /* Borde activo */
+  box-shadow:0 0 0 1px rgba(56,189,248,.6);                  /* Halo */
+  background-color:#020617;
 }
 
-/* Texto introductorio del formulario */
-.form-intro {
-    font-size: 0.95rem; /* Tamaño de letra para la descripción */
-    color: #cbd5f5; /* Color suave para no saturar el texto */
-    margin-bottom: 20px; /* Espacio debajo de la introducción */
+.checkbox-inline, .radio-inline{
+  display:inline-flex; align-items:center; gap:6px;          /* Opciones en línea */
+  margin-right:14px; margin-bottom:6px;
+  font-size:.85rem; color:#e5e7eb;
+}
+.checkbox-inline input, .radio-inline input{ accent-color:#38bdf8; } /* Acento */
+
+.form-actions{
+  display:flex; justify-content:flex-end; gap:10px;          /* Botones derecha */
+  margin-top:15px;
 }
 
-/* FIELDSET y LEGEND: recuadros y títulos internos del formulario */
-form fieldset {
-    border: 1px solid rgba(148, 163, 184, 0.4); /* Borde suave alrededor del bloque de campos */
-    border-radius: 12px; /* Bordes redondeados para el fieldset */
-    padding: 18px 18px 16px; /* Espacio interno dentro del fieldset */
-    margin-bottom: 18px; /* Espacio entre un fieldset y otro */
-}
-
-form legend {
-    padding: 0 8px; /* Relleno lateral para separar el título del borde del fieldset */
-    font-size: 0.95rem; /* Tamaño de la letra del título del bloque de campos */
-    font-weight: 500; /* Grosor medio para destacar el legend */
-    color: #e5e7eb; /* Color claro para el texto del legend */
-}
-
-/* Distribución de filas y grupos dentro del formulario para organizar los campos */
-.form-row {
-    display: flex; /* Coloco varios campos en la misma fila */
-    gap: 16px; /* Espacio entre los grupos de la fila */
-    margin-top: 10px; /* Margen superior para separar la fila de lo anterior */
-    flex-wrap: wrap; /* Permito que los elementos se vayan a otra línea en pantallas más pequeñas */
-}
-
-/* Versión de fila donde quiero apilar los elementos en columna */
-.form-row-column {
-    flex-direction: column; /* Cambia la dirección de la fila a columna */
-}
-
-/* Cada grupo de campos dentro de una fila */
-.form-group {
-    flex: 1; /* Ocupa un espacio flexible dentro de la fila */
-    min-width: 180px; /* Ancho mínimo para que el campo no se quede demasiado estrecho */
-    display: flex; /* Uso flex para alinear label e input en columna */
-    flex-direction: column; /* Coloco la etiqueta encima del campo de entrada */
-}
-
-/* Grupo de campos que debe ocupar toda la fila */
-.form-group-wide {
-    min-width: 100%; /* El grupo se expande a todo el ancho disponible */
-}
-
-/* Estilo general de las etiquetas de los campos del formulario */
-label {
-    font-size: 0.85rem; /* Tamaño del texto de la etiqueta */
-    margin-bottom: 4px; /* Espacio entre la etiqueta y el campo al que pertenece */
-    color: #e5e7eb; /* Color claro para que sea legible sobre el fondo oscuro */
-}
-
-/* Etiqueta que quiero que se comporte como bloque completo */
-.label-block {
-    display: block; /* La etiqueta ocupa toda la línea */
-    font-size: 0.85rem; /* Tamaño de letra de la etiqueta */
-    margin-bottom: 6px; /* Un poco más de espacio debajo para separarla del campo */
-    color: #e5e7eb; /* Color claro para la etiqueta */
-}
-
-/* Estilo que aplico a todos los inputs de texto, email, teléfono, fecha, archivos, select y textarea */
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="date"],
-input[type="file"],
-select,
-textarea {
-    background-color: #020617; /* Pongo fondo oscuro dentro del campo */
-    border: 1px solid rgba(148, 163, 184, 0.6); /* Borde claro pero suave */
-    border-radius: 8px; /* Bordes redondeados para los campos */
-    padding: 8px 10px; /* Relleno interno para que el texto no toque el borde */
-    font-size: 0.9rem; /* Tamaño de texto dentro de los inputs */
-    color: #e5e7eb; /* Color del texto interno de los campos */
-    outline: none; /* Quito el borde azul por defecto del navegador al enfocar */
-    transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s; /* Suavizo los cambios cuando el campo recibe foco */
-}
-
-/* Ajuste específico del padding para el input de tipo archivo */
-input[type="file"] {
-    padding: 6px 8px; /* Reducido un poco el relleno para este tipo de campo */
-}
-
-/* Hago que el área de texto se pueda redimensionar solo en vertical */
-textarea {
-    resize: vertical; /* Solo permito cambiar el tamaño hacia arriba o abajo */
-}
-
-/* Estilos que se aplican cuando el input, select o textarea están en foco */
-input:focus,
-select:focus,
-textarea:focus {
-    border-color: #38bdf8; /* Cambio el color del borde para indicar que está activo */
-    box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.6); /* Le añado un contorno suave de luz */
-    background-color: #020617; /* Mantengo el fondo oscuro */
-}
-
-/* Estilo para alinear en línea las casillas de verificación (checkboxes) y radios */
-.checkbox-inline,
-.radio-inline {
-    display: inline-flex; /* Uso flex en línea para alinear el input y el texto */
-    align-items: center; /* Centro verticalmente el checkbox/radio con su texto */
-    gap: 6px; /* Pequeño espacio entre el input y la etiqueta de texto */
-    margin-right: 14px; /* Espacio a la derecha entre opciones */
-    margin-bottom: 6px; /* Espacio inferior entre líneas de opciones */
-    font-size: 0.85rem; /* Tamaño del texto de la opción */
-    color: #e5e7eb; /* Color claro para el texto */
-}
-
-/* Aquí defino el color de acento de los checkboxes y radios */
-.checkbox-inline input,
-.radio-inline input {
-    accent-color: #38bdf8; /* Color azul claro para el check o el punto del radio */
-}
-
-/* Contenedor de los botones de acción del formulario (enviar, reset, etc.) */
-.form-actions {
-    display: flex; /* Coloco los botones en línea */
-    justify-content: flex-end; /* Alineo los botones a la derecha */
-    gap: 10px; /* Dejo espacio entre botón y botón */
-    margin-top: 15px; /* Separo el grupo de botones del resto del formulario */
-}
-
+/* =========================================================
+   7) Botones (form)
+   ========================================================= */
 /* Estilo base para todos los botones */
-button {
-    font-family: inherit; /* Uso la misma fuente que el resto del documento */
-    cursor: pointer; /* Muestro la mano al pasar por encima, indicando que es clicable */
+button{
+  font-family:inherit;                                       /* Hereda fuente */
+  cursor:pointer;                                            /* Mano */
 }
 
 /* Estilo común para los dos tipos de botones: primario y secundario */
-.btn-primary,
-.btn-secondary {
-    border-radius: 999px; /* Hago los botones totalmente redondeados (tipo píldora) */
-    padding: 8px 20px; /* Relleno interno para que el botón tenga tamaño cómodo */
-    font-size: 0.9rem; /* Tamaño de la letra del botón */
-    border: 1px solid transparent; /* Defino un borde inicial que puedo animar */
-    transition: transform 0.15s, box-shadow 0.15s, background-color 0.2s, border-color 0.2s; /* Suavizo los cambios de estado (hover, etc.) */
+.btn-primary, .btn-secondary{
+  border-radius:999px;                                       /* Píldora */
+  padding:8px 20px; font-size:.9rem;
+  border:1px solid transparent;
+  transition:transform .15s, box-shadow .15s, background-color .2s, border-color .2s;
 }
 
 /* Botón principal, el que resalta más */
-.btn-primary {
-    background: linear-gradient(135deg, #1d4ed8, #38bdf8); /* Degradado azul llamativo de fondo */
-    color: #f9fafb; /* Texto muy claro para contrastar con el azul */
-    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.45); /* Sombra para dar sensación de relieve */
+.btn-primary{
+  background:linear-gradient(135deg, #1d4ed8, #38bdf8);      /* Degradado azul */
+  color:#f9fafb;
+  box-shadow:0 10px 25px rgba(37,99,235,.45);
 }
-
-/* Efecto al pasar el cursor sobre el botón principal */
-.btn-primary:hover {
-    transform: translateY(-1px); /* Lo levanto ligeramente hacia arriba */
-    box-shadow: 0 14px 35px rgba(37, 99, 235, 0.6); /* Aumento la sombra para reforzar el efecto de "flotando" */
+.btn-primary:hover{
+  transform:translateY(-1px);
+  box-shadow:0 14px 35px rgba(37,99,235,.6);
 }
 
 /* Botón secundario, menos llamativo que el principal */
-.btn-secondary {
-    background-color: transparent; /* Botón con fondo transparente */
-    color: #e5e7eb; /* Texto claro para que se vea sobre el fondo oscuro */
-    border-color: rgba(148, 163, 184, 0.7); /* Borde visible en tono gris azulado */
+.btn-secondary{
+  background-color:transparent;
+  color:#e5e7eb;
+  border-color:rgba(148,163,184,.7);
 }
+.btn-secondary:hover{ background-color:rgba(15,23,42,.9); }
 
-/* Efecto al pasar el ratón por encima del botón secundario */
-.btn-secondary:hover {
-    background-color: rgba(15, 23, 42, 0.9); /* Pongo un fondo oscuro para que se note el hover */
-}
-
+/* =========================================================
+   8) Menú (menu.html)
+   ========================================================= */
 /* ====== Sección de menú / información (archivo menu.html) ====== */
-
-.menu-main {
-    min-height: calc(100vh - 80px); /* Hago que la página de menú ocupe casi toda la altura de la ventana */
-    padding: 40px 20px 60px; /* Dejo espacio alrededor del contenido de menú */
-    display: flex; /* Uso flex para centrar el contenedor del menú */
-    justify-content: center; /* Centro horizontalmente el contenido */
-    align-items: flex-start; /* Lo alineo en la parte superior verticalmente */
-    background: radial-gradient(circle at 80% 20%, rgba(56, 189, 248, 0.16), transparent 55%); /* Degradado suave de fondo para el menú */
+.menu-main{
+  min-height:calc(100vh - 80px);
+  padding:40px 20px 60px;
+  display:flex; justify-content:center; align-items:flex-start;
+  background:radial-gradient(circle at 80% 20%, rgba(56,189,248,.16), transparent 55%);
 }
-
-/* Contenedor principal del contenido del menú */
-.menu-container {
-    width: 100%; /* Ocupa todo el ancho posible */
-    max-width: 1100px; /* Limito el ancho máximo para una mejor lectura */
-    background-color: #020617; /* Fondo oscuro para el recuadro del menú */
-    border-radius: 16px; /* Bordes redondeados del contenedor */
-    padding: 30px 30px 35px; /* Espacio interno alrededor del texto y tablas */
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6); /* Sombra para destacar el bloque */
-    border: 1px solid rgba(148, 163, 184, 0.25); /* Borde suave para enmarcar la caja */
+.menu-container{
+  width:100%; max-width:1100px;
+  background-color:#020617;
+  border-radius:16px;
+  padding:30px 30px 35px;
+  box-shadow:0 20px 45px rgba(0,0,0,.6);
+  border:1px solid rgba(148,163,184,.25);
 }
+.menu-container h2{ font-size:2rem; margin-bottom:8px; }
+.menu-intro{ font-size:.95rem; color:#cbd5f5; margin-bottom:18px; }
 
-/* Título principal de la página de menú */
-.menu-container h2 {
-    font-size: 2rem; /* Tamaño del encabezado principal */
-    margin-bottom: 8px; /* Espacio debajo del título */
+.menu-section{ margin-top:20px; }
+.menu-section h3{ font-size:1.2rem; margin-bottom:4px; }
+.menu-section p{ font-size:.95rem; color:#cbd5f5; margin-bottom:8px; }
+
+.menu-table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:10px; margin-bottom:16px;
+  font-size:.85rem;
 }
-
-/* Texto introductorio de la página de menú */
-.menu-intro {
-    font-size: 0.95rem; /* Tamaño del texto introductorio */
-    color: #cbd5f5; /* Color claro para diferenciarlo del fondo */
-    margin-bottom: 18px; /* Separación respecto al resto del contenido */
+.menu-table th, .menu-table td{
+  border:1px solid rgba(148,163,184,.4);
+  padding:8px 10px;
+  text-align:left;
+  vertical-align:top;
 }
-
-/* Cada sección de contenido dentro del menú (por ejemplo categorías de información) */
-.menu-section {
-    margin-top: 20px; /* Espacio superior para separar secciones */
+.menu-table thead th{
+  background-color:#020617;
+  color:#e5e7eb;
+  font-weight:500;
 }
+.menu-table tbody tr:nth-child(odd){ background-color:#020617; }
+.menu-table tbody tr:nth-child(even){ background-color:#020617f0; }
 
-/* Título de cada sección específica del menú */
-.menu-section h3 {
-    font-size: 1.2rem; /* Tamaño de subtítulo para la sección */
-    margin-bottom: 4px; /* Espacio debajo del subtítulo */
-}
-
-/* Párrafos de descripción dentro de las secciones de menú */
-.menu-section p {
-    font-size: 0.95rem; /* Tamaño de texto para los párrafos */
-    color: #cbd5f5; /* Color claro para que destaque sobre el fondo */
-    margin-bottom: 8px; /* Espacio entre párrafos y otros elementos como tablas */
-}
-
-/* Tabla donde presento los datos del menú, como elementos y características */
-.menu-table {
-    width: 100%; /* La tabla ocupa todo el ancho permitido por su contenedor */
-    border-collapse: collapse; /* Elimino espacios entre bordes de las celdas */
-    margin-top: 10px; /* Espacio por encima de la tabla */
-    margin-bottom: 16px; /* Espacio por debajo para separar de otros contenidos */
-    font-size: 0.85rem; /* Tamaño de letra para que la tabla no se vea demasiado grande */
-}
-
-/* Estilo general para celdas de cabecera y contenido en la tabla */
-.menu-table th,
-.menu-table td {
-    border: 1px solid rgba(148, 163, 184, 0.4); /* Borde suave alrededor de cada celda */
-    padding: 8px 10px; /* Espacio interno dentro de cada celda */
-    text-align: left; /* Alineo el texto a la izquierda */
-    vertical-align: top; /* Alineo el contenido al inicio verticalmente */
-}
-
-/* Cabecera de la tabla, donde están los títulos de columnas */
-.menu-table thead th {
-    background-color: #020617; /* Fondo del encabezado igual al fondo general pero marcado con el borde */
-    color: #e5e7eb; /* Color claro para el texto de las cabeceras */
-    font-weight: 500; /* Grosor medio para destacar respecto al resto de filas */
-}
-
-/* Fila impar de la tabla, para crear un efecto de bandas */
-.menu-table tbody tr:nth-child(odd) {
-    background-color: #020617; /* Fondo oscuro base para estas filas */
-}
-
-/* Fila par de la tabla, con un fondo ligeramente distinto para diferenciarla */
-.menu-table tbody tr:nth-child(even) {
-    background-color: #020617f0; /* Le cambio un poco la transparencia para crear un contraste muy suave */
-}
-
+/* =========================================================
+   9) Footer
+   ========================================================= */
 /* Pie de página del sitio, que se muestra al final de la página */
-.site-footer {
-    text-align: center; /* Centro el texto del pie de página */
-    padding: 15px 10px; /* Relleno alrededor del texto para que respire */
-    background-color: #111827; /* Fondo oscuro similar al de la cabecera */
-    color: #e5e7eb; /* Texto claro para que se lea bien */
-    font-size: 0.85rem; /* Tamaño de letra pequeño para el pie de página */
-    font-weight: 300; /* Grosor ligero del texto del pie */
+.site-footer{
+  text-align:center;
+  padding:15px 10px;
+  background-color:#111827;
+  color:#e5e7eb;
+  font-size:.85rem;
+  font-weight:300;
 }
 
+/* =========================================================
+   10) Responsive
+   ========================================================= */
 /* RESPONSIVE: aquí adapto el diseño cuando el ancho de la pantalla es más pequeño */
-@media (max-width: 900px) {
-    .hero {
-        flex-direction: column; /* Pongo el texto y la letra uno debajo del otro */
-        text-align: center; /* Centro los textos al reducir el ancho */
-        padding: 30px 20px; /* Reduzco un poco el relleno lateral */
-    }
-
-    .hero-text {
-        max-width: 100%; /* Dejo que el texto ocupe todo el ancho disponible */
-        margin-bottom: 20px; /* Separo el texto de la parte de la letra */
-    }
-
-    .galeria-cards {
-        justify-content: center; /* Centro las tarjetas cuando hay menos espacio horizontal */
-    }
+@media (max-width: 900px){
+  .hero{
+    flex-direction:column;                                    /* Hero en columna */
+    text-align:center;
+    padding:30px 20px;
+  }
+  .hero-text{
+    max-width:100%;
+    margin-bottom:20px;
+  }
+  .galeria-cards{ justify-content:center; }                   /* Cards centradas */
 }
 
 /* Otra regla responsive para pantallas aún más pequeñas */
-@media (max-width: 768px) {
-    .site-header {
-        flex-direction: column; /* La cabecera pasa a tener sus elementos apilados en columna */
-        gap: 10px; /* Dejo un espacio entre las secciones de la cabecera */
-    }
-
-    .form-container,
-    .menu-container {
-        padding: 20px 16px 24px; /* Ajusto los paddings para que entren mejor en pantallas pequeñas */
-    }
+@media (max-width: 768px){
+  .site-header{
+    flex-direction:column;                                    /* Header apilado */
+    gap:10px;
+  }
+  .form-container, .menu-container{
+    padding:20px 16px 24px;                                   /* Padding reducido */
+  }
 }
 
+/* =========================================================
+   11) Capas sobre canvas
+   ========================================================= */
 /* ====== Capas para asegurar que el contenido quede por encima del canvas de fondo ====== */
-.site-header,
-.hero,
-.imagenes-section,
-.form-main,
-.menu-main,
-.site-footer {
-    position: relative; /* Pongo estos elementos en contexto de posición para poder controlar su nivel de capa */
-    z-index: 10;   /* Doy un z-index alto para que aparezcan por encima del canvas que va detrás */
+.site-header, .hero, .imagenes-section, .form-main, .menu-main, .site-footer{
+  position:relative;                                          /* Contexto de capa */
+  z-index:10;                                                 /* Por encima del canvas */
 }
