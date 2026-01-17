@@ -1,5 +1,24 @@
+/* =========================================================
+   sketch.js — Fondo animado tipo "medusa" (p5.js)
+   Objetivo: partículas + ruido Perlin + spawn con ratón
+   ========================================================= */
+
+/* =========================================================
+   ÍNDICE (qué hay en cada parte)
+   1) Variables globales y configuración general
+   2) Captura de ratón (mousemove)
+   3) setup() — creación y estilo del canvas
+   4) draw() — loop de render + spawn + update/dibujo
+   5) spawnParticle(x, y) — creación de partículas
+   6) windowResized() — ajuste del canvas al resize
+   ========================================================= */
+
 // sketch.js
 // En este archivo creo el fondo animado tipo "medusa" que se ve detrás de todas las páginas de TecnoVision
+
+/* =========================================================
+   1) Variables globales y configuración general
+   ========================================================= */
 
 let canvas;                   // Aquí guardo la referencia al canvas de p5.js
 let particles = [];           // En este array voy guardando todas las partículas activas
@@ -14,12 +33,20 @@ let mousePos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
 // Variable para registrar el último momento en que se movió el ratón
 let lastMoveTime = 0;
 
+/* =========================================================
+   2) Captura de ratón (mousemove)
+   ========================================================= */
+
 // Aquí escucho el movimiento del ratón en toda la ventana y guardo su posición
 window.addEventListener("mousemove", (e) => {
   mousePos.x = e.clientX;     // Posición horizontal del ratón
   mousePos.y = e.clientY;     // Posición vertical del ratón
   lastMoveTime = Date.now();  // Actualizo la marca de tiempo del último movimiento
 });
+
+/* =========================================================
+   3) setup() — creación y estilo del canvas
+   ========================================================= */
 
 function setup() {
   // Creo un canvas que ocupa toda la pantalla usando las dimensiones de la ventana
@@ -37,6 +64,10 @@ function setup() {
   colorMode(HSB, 360, 100, 100, 100);
   noStroke(); // No quiero bordes en las figuras, solo relleno suave
 }
+
+/* =========================================================
+   4) draw() — loop de render + spawn + update/dibujo
+   ========================================================= */
 
 function draw() {
   // Limpio el canvas en cada frame para que el fondo sea transparente y no tape el diseño
@@ -103,6 +134,10 @@ function draw() {
   }
 }
 
+/* =========================================================
+   5) spawnParticle(x, y) — creación de partículas
+   ========================================================= */
+
 function spawnParticle(x, y) {
   // Antes de añadir una nueva partícula, compruebo si he superado el límite
   if (particles.length > MAX_PARTICLES) {
@@ -141,6 +176,10 @@ function spawnParticle(x, y) {
     baseSize: random(16, 28),
   });
 }
+
+/* =========================================================
+   6) windowResized() — ajuste del canvas al resize
+   ========================================================= */
 
 // Esta función se ejecuta cuando cambia el tamaño de la ventana del navegador
 function windowResized() {
