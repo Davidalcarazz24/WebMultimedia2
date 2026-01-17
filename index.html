@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
 
+<!-- =========================================================
+     ÍNDICE (qué hay en cada parte)
+     1) Scripts de p5.js + sketch (fondo animado)
+     2) Head (meta, título, fuentes, CSS)
+     3) Header (título, siglas, navegación)
+     4) Main hero (texto principal + letra 3D)
+     5) Sección Imágenes (galería de cards)
+     6) Footer (pie de página)
+     7) Script main.js (efecto 3D letra)
+     ========================================================= -->
+
 <!-- Aquí cargo primero la librería p5.js y mi script de fondo para tener el canvas animado en toda la web -->
 <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
 <script src="js/sketch.js"></script>
 
 <head>
+    <!-- =========================================================
+         2) Head (meta, título, fuentes, CSS)
+         ========================================================= -->
+
     <!-- Con este meta indico la codificación de caracteres para evitar problemas con tildes y eñes -->
     <meta charset="UTF-8">
     <!-- Aquí hago que el diseño sea responsive y se adapte al ancho de cada dispositivo -->
@@ -24,6 +39,10 @@
 </head>
 
 <body>
+    <!-- =========================================================
+         3) Header (título, siglas, navegación)
+         ========================================================= -->
+
     <!-- En esta cabecera coloco el título del sitio, las siglas y el menú de navegación -->
     <header class="site-header">
         <!-- Bloque de la izquierda donde muestro el nombre del proyecto y una descripción corta -->
@@ -52,6 +71,10 @@
         </nav>
     </header>
 
+    <!-- =========================================================
+         4) Main hero (texto principal + letra 3D)
+         ========================================================= -->
+
     <!-- Esta parte es la sección hero principal, donde presento el mensaje más importante -->
     <main class="hero">
         <!-- En este bloque coloco el texto grande que describe qué es TecnoVision Studio -->
@@ -73,6 +96,10 @@
             </div>
         </section>
     </main>
+
+    <!-- =========================================================
+         5) Sección Imágenes (galería de cards)
+         ========================================================= -->
 
     <!-- Sección donde muestro tres tarjetas con imágenes que representan el estilo visual del estudio -->
     <section id="imagenes" class="imagenes-section">
@@ -139,10 +166,18 @@
         </div>
     </section>
 
+    <!-- =========================================================
+         6) Footer (pie de página)
+         ========================================================= -->
+
     <!-- Pie de página donde muestro el nombre del sitio y el año del proyecto -->
     <footer class="site-footer">
         <p>&copy; 2025 TecnoVision Web · Desarrollo de Aplicaciones</p>
     </footer>
+
+    <!-- =========================================================
+         7) Script main.js (efecto 3D letra)
+         ========================================================= -->
 
     <!-- Aquí enlazo el script que se encarga del movimiento 3D de las letras DA del hero -->
     <script src="js/main.js"></script>
